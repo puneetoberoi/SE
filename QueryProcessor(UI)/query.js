@@ -41,10 +41,14 @@ app.get('/', function (req, res, next) {
 
 
 app.get('/test/:query', function (req, res) {
+  console.log(req.params.query + " user query")
+  if(req.params.query === ""){
+    console.log("user entered nothing")
+  }
   urls=[]
-  notes = []
-  body = []
-  first = []
+  // notes = []
+  // body = []
+  // first = []
   db.collection('mongo').find({ $text: { $search: req.params.query } },
     { score: { $meta: "textScore" } })
     .sort({ score: { $meta: "textScore" } })
@@ -55,7 +59,6 @@ app.get('/test/:query', function (req, res) {
       data.map(element =>{
         var res = (element.url).split(" ")
         res.forEach(a=>{
-          console.log(a)
           one.add(a)
         })
         
@@ -63,8 +66,7 @@ app.get('/test/:query', function (req, res) {
 
       one.forEach(element=>{
       })
-      
-      console.log(one.size + " set size")
+   
       if(one.size === 0){
         return res.send({
           "output": "no results found for your query"
@@ -72,7 +74,6 @@ app.get('/test/:query', function (req, res) {
       }
       
       let result = one.forEach(element =>{
-        console.log(element + " final url")
          urls.push(element)
       })
       
@@ -87,8 +88,18 @@ app.get('/test/:query', function (req, res) {
 
 app.post('/test/', urlencodedParser, function (req, res, next) {
   var put = req.body.query;
-  db.collection("query").insert({ body: put }, function (err, res) {
-    if (err) throw err;
-  });
-  res.redirect('/test/' + put)
+  console.log(typeof(put))
+  console.log(put + " put")
+  if(put !== ""){
+    db.collection("query").insert({ body: put }, function (err, res) {
+      if (err) throw err;
+    });
+    res.redirect('/test/' + put)
+  }else {
+    console.log("Empty String")
+    res.redirect('/' )
+  }
+   
+  
+    
 })
