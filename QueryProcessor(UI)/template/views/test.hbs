@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<title>Puneet's SE</title>
+
+<head>
+    <style>
+        body {
+            padding-top: 50px;
+            padding-left: 20px;
+            padding-right: 20px ;
+            margin: 0 auto;
+            color: grey;
+            font-family: sans-serif;
+            max-width: 1000px;
+            
+        }
+
+        h1 {
+            color: red;
+        }
+
+        p {
+            color: red;
+        }
+        #first {
+            color: blue;
+        }
+        #nam {
+            position: absolute;
+            text-decoration: underline;
+            top: 90%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: blue;
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1 style="color:blue;">The best suited links are as folows -:</h1>
+    <br>
+    <div id="first">
+        {{# each items }}
+        
+        <a href="{{ this }}">{{ this }}</a>
+        <hr/>
+        <div>{{ this.details.description }}</div>
+        {{!-- <div>{{ this.description }}</div> --}}
+        <br>
+        <br>
+        <br>
+        {{/each}}
+    </div>
+    <p id="nam">Create by: {{title}}
+        {{desc}}
+    </p>
+
+</body>
+
+</html>

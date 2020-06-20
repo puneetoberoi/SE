@@ -1,0 +1,48 @@
+<marquee>Please enter your search query</marquee>
+
+<head>
+    <style>
+        #one {
+            position: absolute;
+            top: 110%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        #two {
+            position: absolute;
+            top: 35%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        #name {
+            position: absolute;
+            text-decoration: underline;
+            top: 90%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: blue;
+
+        }
+        #line{
+            
+
+            }
+    </style>
+</head>
+
+<body>
+    <img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/facebook/65/man-with-turban_1f473.png" id="two">
+    <div class="wrapper">
+        <div class="searchBox" style="position:absolute;
+        top:50%; left:50%; transform: translate(-50%,-50%);">
+            <form action="/test/" method="POST">
+                <input type="text" name="query">
+                <br>
+                <button id="one" type="submit">Submit</button>
+
+            </form>
+        </div>
+    </div>
+    
+    <p id="name">Create by: {{title}}</p>
+</body>
