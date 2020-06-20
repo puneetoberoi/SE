@@ -2,11 +2,16 @@
 
 <head>
     <style>
-        #one {
+        #btn {
+            border-radius: 10px;
+            padding: 5px;
+            margin: 5px;
+            width: 50%;
             position: absolute;
             top: 110%;
             left: 50%;
             transform: translate(-50%, -50%);
+            cursor: pointer;
         }
         #two {
             position: absolute;
@@ -20,11 +25,14 @@
             top: 90%;
             left: 50%;
             transform: translate(-50%, -50%);
-            background: blue;
+            background: green;
 
         }
-        #line{
-            
+        #in{
+            box-shadow: 2px 2px 8px 1px;
+            border-radius: 10px;
+            padding: 5px;
+            margin: 10px;
 
             }
     </style>
@@ -36,9 +44,9 @@
         <div class="searchBox" style="position:absolute;
         top:50%; left:50%; transform: translate(-50%,-50%);">
             <form action="/test/" method="POST">
-                <input type="text" name="query">
+                <input id = "in" type="text" name="query">
                 <br>
-                <button id="one" type="submit">Submit</button>
+                <button id="btn" type="submit">Submit</button>
 
             </form>
         </div>
